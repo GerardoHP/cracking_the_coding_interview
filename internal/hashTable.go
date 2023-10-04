@@ -36,18 +36,43 @@ func (ht *HashTable) AddOrUpdate(key, value string) bool {
 }
 
 func (ht *HashTable) Get(key string) (string, bool) {
-	hash := calculateHash(key)
-	for _, v := range ht.vals[hash] {
-		if v.Key == key {
-			return v.Value, true
-		}
-	}
-
-	return "", false
+	val, found, _, _ := internalGet(*ht, key)
+	return val, found
 }
 
 func (ht *HashTable) Length() int {
 	return ht.count
+}
+
+func (ht *HashTable) Remove(key string) bool {
+	_, found, index, hash := internalGet(*ht, key)
+	if found {
+		c := make([]hashElement, len(ht.vals[hash]))
+		copy(c, ht.vals[hash])
+		if len(c) == 1 {
+			ht.vals[hash] = make([]hashElement, 0)
+			ht.count--
+			return found
+		}
+
+		ht.vals[hash] = make([]hashElement, 0)
+		ht.vals[hash] = append(ht.vals[hash], c[:index]...)
+		ht.vals[hash] = append(ht.vals[hash], c[index+1:]...)
+		ht.count--
+	}
+
+	return found
+}
+
+func internalGet(ht HashTable, key string) (string, bool, int, int) {
+	hash := calculateHash(key)
+	for i, v := range ht.vals[hash] {
+		if v.Key == key {
+			return v.Value, true, i, hash
+		}
+	}
+
+	return "", false, -1, hash
 }
 
 func calculateHash(str string) int {

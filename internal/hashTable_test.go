@@ -66,3 +66,45 @@ func TestHashTable_AddOrUpdate2(t *testing.T) {
 		}
 	}
 }
+
+func TestHashTable_Delete(t *testing.T) {
+	// arrange
+	table := internal.HashTable{}
+	key := "b-ba"
+	value := "primer valor"
+	table.AddOrUpdate(key, value)
+	table.AddOrUpdate("bb+a", "segundo valor")
+	table.AddOrUpdate("bb-a", "tercer valor")
+	table.Remove(key)
+	expectedCount := 2
+
+	// act, assert
+	if l := table.Length(); l != expectedCount {
+		t.Fatalf("expected %v, but found %v \n", expectedCount, l)
+	}
+
+	if val, found := table.Get(key); found {
+		t.Fatalf("not expecte any value but found %v \n", val)
+	}
+}
+
+func TestHashTable_Remove(t *testing.T) {
+	// arrange
+	table := internal.HashTable{}
+	key := "bb+a"
+	value := "segundo valor"
+	table.AddOrUpdate("b-ba", "primer valor")
+	table.AddOrUpdate(key, value)
+	table.AddOrUpdate("bb-a", "tercer valor")
+	table.Remove(key)
+	expectedCount := 2
+
+	// act, assert
+	if l := table.Length(); l != expectedCount {
+		t.Fatalf("expected %v, but found %v \n", expectedCount, l)
+	}
+
+	if val, found := table.Get(key); found {
+		t.Fatalf("not expecte any value but found %v \n", val)
+	}
+}
