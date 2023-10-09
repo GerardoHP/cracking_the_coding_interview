@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"github.com/GerardoHP/cracking_the_coding_interview/cmd/cli/commands"
-	"github.com/GerardoHP/cracking_the_coding_interview/internal"
 	"os"
 )
 
@@ -16,11 +15,16 @@ func main() {
 		os.Exit(1)
 	}
 
-	var cmd internal.ExerciseRun
+	var cmd commands.CommandRun
 	switch args[0] {
 	case commands.IsUniqueCommandName:
 		cmd = commands.NewIsUniqueCommand()
 		_ = cmd.Init(args[1:])
+		break
+	case commands.CheckPermutationName:
+		cmd = commands.NewCheckPermutationCommand()
+		_ = cmd.Init(args[1:])
+		break
 	default:
 		cmd = nil
 	}

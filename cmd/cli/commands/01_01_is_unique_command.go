@@ -3,14 +3,12 @@ package commands
 import (
 	"flag"
 	"fmt"
-	"github.com/GerardoHP/cracking_the_coding_interview/internal"
 	"github.com/GerardoHP/cracking_the_coding_interview/pkg/chapter_01"
 )
 
-const (
-	IsUniqueCommandName = "IsUnique"
-	IsUniqueCommandId   = IsUnique
-)
+const IsUniqueCommandName = "IsUnique"
+
+var _ CommandRun = (*IsUniqueCommand)(nil)
 
 type IsUniqueCommand struct {
 	fs     *flag.FlagSet
@@ -40,5 +38,3 @@ func (i IsUniqueCommand) Run() error {
 func (i IsUniqueCommand) Name() string {
 	return i.fs.Name()
 }
-
-var _ internal.ExerciseRun = (*IsUniqueCommand)(nil)

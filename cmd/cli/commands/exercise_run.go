@@ -1,6 +1,6 @@
-package internal
+package commands
 
-type ExerciseRun interface {
+type CommandRun interface {
 	Init([]string) error
 	Run() error
 	Name() string
