@@ -1,0 +1,6 @@
+services:
+  cli:
+    image: gerardohp/cci:latest
+    build:
+      context: ../
+      dockerfile: build/Dockerfile
