@@ -1,6 +1,7 @@
 # Cracking the coding interview
 
 The current repo represents the solutions to some of the exercises, using Go.
+
 ## Chapter 1 - Arrays and Strings
 
 1.1 [Is Unique](pkg/chapter_01/01_is_unique.go)             
