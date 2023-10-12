@@ -4,17 +4,14 @@ package chapter_01
 // the end to the hold the additional characters, and that you are given the "true" length of the string. (Note: If
 // implementing in Java, please use a character array so that you can perform this operation in place.)
 func Urlify(str []rune, size int) string {
-	for i := 0; i < len(str); i++ {
+	index := len(str) - size
+	copy(str[index:], str[:len(str)])
+	for i := len(str) - 1; i >= 0 && index > 0; i-- {
 		if str[i] == ' ' {
-			t := make([]rune, len(str[i+1:]))
-			copy(t[:], str[i+1:])
-			str[i] = '%'
-			i++
-			str[i] = '2'
-			i++
-			str[i] = '0'
-			i++
-			copy(str[i:], t[:])
+			copy(str[index-2:i], str[index:i])
+			index -= 2
+			i -= 2
+			copy(str[i:], []rune("%20"))
 		}
 	}
 

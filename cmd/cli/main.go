@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+
 	"github.com/GerardoHP/cracking_the_coding_interview/cmd/cli/commands"
 	"os"
 )
@@ -23,6 +24,10 @@ func main() {
 		break
 	case commands.CheckPermutationName:
 		cmd = commands.NewCheckPermutationCommand()
+		_ = cmd.Init(args[1:])
+		break
+	case commands.UrlifyName:
+		cmd = commands.NewUrlifyComamnd()
 		_ = cmd.Init(args[1:])
 		break
 	default:
