@@ -25,6 +25,10 @@ func main() {
 		cmd = commands.NewCheckPermutationCommand()
 		_ = cmd.Init(args[1:])
 		break
+	case commands.UrlifyName:
+		cmd = commands.NewUrlifyComamnd()
+		_ = cmd.Init(args[1:])
+		break
 	default:
 		cmd = nil
 	}
