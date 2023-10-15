@@ -30,6 +30,10 @@ func main() {
 		cmd = commands.NewUrlifyComamnd()
 		_ = cmd.Init(args[1:])
 		break
+	case commands.PalindromePermutationName:
+		cmd = commands.NewPalindromePermutationCommand()
+		_ = cmd.Init(args[1:])
+		break
 	default:
 		cmd = nil
 	}

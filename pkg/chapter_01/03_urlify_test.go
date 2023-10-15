@@ -6,10 +6,15 @@ import (
 )
 
 func TestUrlify(t *testing.T) {
+	// Arrange
 	expected := "Mr%20John%20Smith"
 	str := "Mr John Smith    "
 	i := 13
+
+	// Act
 	r := chapter_01.Urlify([]rune(str), i)
+
+	// Assert
 	if expected != r {
 		t.Fatalf("expected %v, but found %v \n", expected, r)
 	}
