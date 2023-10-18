@@ -33,6 +33,18 @@ Input: Tact Coa
 Output: True (permutations: "taco cat", "atco cta", etc.)
 ```
 
+1.5 [One Away](pkg/chapter_01/05_one_away.go)
+: There are three types of edits that can be performed on strings: insert a character, remove a character, or replace a 
+character. Given ple strings, write a function to check if they are one edit (or zero edits) away.
+
+```
+EXAMPLE
+pale, ple -› true 
+pales, pale -› true 
+pale, bale -> true 
+pale, bake -› false
+```
+
 ## Docker support
 It has support for Docker, to use it do as following:
 
