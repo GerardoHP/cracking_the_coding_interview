@@ -34,7 +34,7 @@ func getResultFromTwoArrays(bigArray, smallArray *string) bool {
 
 			d = true
 			if len(*bigArray) != len(*smallArray) {
-				i++
+				j++
 			}
 		}
 

@@ -21,6 +21,7 @@ func newTestOneAwayArgs(str1, str2 string, expected bool, testId int) *testOneAw
 		testId:   testId,
 	}
 }
+
 func TestOneAway(t *testing.T) {
 	tableTests := []*testOneAwayArgs{
 		newTestOneAwayArgs("pale", "ple", true, 1),
