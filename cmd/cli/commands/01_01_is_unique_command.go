@@ -25,16 +25,16 @@ func NewIsUniqueCommand() *IsUniqueCommand {
 	return iu
 }
 
-func (i IsUniqueCommand) Init(args []string) error {
+func (i *IsUniqueCommand) Init(args []string) error {
 	return i.fs.Parse(args)
 }
 
-func (i IsUniqueCommand) Run() error {
-	result := chapter_01.IsUnique(i.entry)
-	fmt.Printf("result for %v is %v \n", i.entry, result)
+func (i *IsUniqueCommand) Run() error {
+	i.result = chapter_01.IsUnique(i.entry)
+	fmt.Printf("result for %v is %v \n", i.entry, i.result)
 	return nil
 }
 
-func (i IsUniqueCommand) Name() string {
+func (i *IsUniqueCommand) Name() string {
 	return i.fs.Name()
 }

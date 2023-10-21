@@ -34,6 +34,12 @@ func main() {
 		cmd = commands.NewPalindromePermutationCommand()
 		_ = cmd.Init(args[1:])
 		break
+	case commands.OneAwayCommandName:
+		cmd = commands.NewOneAwayCommand()
+		_ = cmd.Init(args[1:])
+	case commands.StringCompressionCommandName:
+		cmd = commands.NewStringCompressionCommand()
+		_ = cmd.Init(args[1:])
 	default:
 		cmd = nil
 	}
