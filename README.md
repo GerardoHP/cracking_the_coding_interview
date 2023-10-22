@@ -44,12 +44,17 @@ pales, pale -› true
 pale, bale -> true 
 pale, bake -› false
 ```
+
 1.6 [String Compression](pkg/chapter_01/06_string_compression.go)
 : Implement a method to perform basic string compression using the counts of repeated characters. 
 For example, the string aabccccaaa would become a2b1c5a3. If the "compressed" string would not become smaller than the 
 original string, your method should return the original string. You can assume the string has only uppercase and 
 lowercase letters (a - z). 
 
+1.7 [Rotate Matrix](pkg/chapter_01/07_rotate_matrix.go)
+: Given an image represented by an NxN matrix, where each pixel in the image is 4 bytes, write a method to rotate the 
+image by 90 degrees. Can you do this in place?
+    
 ## Docker support
 It has support for Docker, to use it do as following:
 
