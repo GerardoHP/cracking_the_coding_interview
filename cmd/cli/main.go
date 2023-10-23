@@ -40,6 +40,9 @@ func main() {
 	case commands.StringCompressionCommandName:
 		cmd = commands.NewStringCompressionCommand()
 		_ = cmd.Init(args[1:])
+	case commands.RotateMatrixCommandName:
+		cmd = commands.NewRotateMatrixCommand()
+		_ = cmd.Init(args[1:])
 	default:
 		cmd = nil
 	}
