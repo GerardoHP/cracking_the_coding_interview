@@ -28,6 +28,7 @@ func TestOneAway(t *testing.T) {
 		newTestOneAwayArgs("pales", "pale", true, 2),
 		newTestOneAwayArgs("pale", "bale", true, 3),
 		newTestOneAwayArgs("pale", "bake", false, 4),
+		newTestOneAwayArgs("pales", "palessss", false, 5),
 	}
 
 	for _, v := range tableTests {
