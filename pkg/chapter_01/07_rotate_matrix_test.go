@@ -13,8 +13,35 @@ func TestRotateMatrix(t *testing.T) {
 		{13, 14, 15, 16},
 	}
 
-	r := chapter_01.RotateMatrix(m)
-	if len(r) <= 0 {
-		t.Fatalf("expected to be more than one")
+	c := [][]int{
+		{13, 9, 5, 1},
+		{14, 10, 6, 2},
+		{15, 11, 7, 3},
+		{16, 12, 8, 4},
 	}
+
+	chapter_01.RotateMatrix(&m)
+	if !AreSlicesEqual(m, c) {
+		t.Fatalf("expected to be the same array")
+	}
+}
+
+func AreSlicesEqual(a, b [][]int) bool {
+	if len(a) != len(b) {
+		return false
+	}
+
+	for i := 0; i < len(a); i++ {
+		if len(a[i]) != len(b[i]) {
+			return false
+		}
+
+		for j := 0; j < len(a[i]); j++ {
+			if a[i][j] != b[i][j] {
+				return false
+			}
+		}
+	}
+
+	return true
 }
