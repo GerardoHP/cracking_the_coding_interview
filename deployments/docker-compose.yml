@@ -1,6 +1,6 @@
 services:
   cli:
-    image: gerardohp/cci:${TAG}
+    image: gerardohp/cci
     build:
       context: ../
       dockerfile: build/Dockerfile
